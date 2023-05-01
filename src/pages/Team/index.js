@@ -74,7 +74,7 @@ const Team = () => {
 	];
 	return (
 		<Box m="20px">
-			<Header title="TEAM" subTitle="Managing the Team Members" />
+			<Header title="TEAM" subTitle="Managing the Team Members." />
 
 			{/* CREATE A TABLE USING DATAGRID */}
 			<Box
