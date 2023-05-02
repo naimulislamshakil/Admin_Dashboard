@@ -2,7 +2,7 @@ import { Box, useTheme } from '@mui/material';
 import React from 'react';
 import { tokens } from '../../thems';
 import Header from '../../components/Header';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { mockDataContacts } from '../../data/mockData';
 
 const Contacts = () => {
@@ -97,7 +97,11 @@ const Contacts = () => {
 					},
 				}}
 			>
-				<DataGrid rows={mockDataContacts} columns={columns} />
+				<DataGrid
+					rows={mockDataContacts}
+					columns={columns}
+					components={{ Toolbar: GridToolbar }}
+				/>
 			</Box>
 		</Box>
 	);
