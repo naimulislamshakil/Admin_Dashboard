@@ -46,6 +46,7 @@ const Calendar = () => {
 			selected.event.remove();
 		}
 	};
+
 	return (
 		<Box m="20px">
 			<Header title="CALENDAR" subTitle="Full Calendar Interactive Page" />

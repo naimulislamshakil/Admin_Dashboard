@@ -1,38 +1,12 @@
-import { Box, Button, TextField, useMediaQuery, useTheme } from '@mui/material';
-import { Formik, useFormik } from 'formik';
+import { Box, Button, TextField } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useFormik } from 'formik';
 import React from 'react';
 import Header from '../../components/Header';
-import { tokens } from '../../thems';
 import * as yup from 'yup';
-
-const initialValues = {
-	firstName: '',
-	lastName: '',
-	email: '',
-	contact: '',
-	address1: '',
-	address2: '',
-};
-
-const phoneRegExp =
-	/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-const userSchema = yup.object().shape({
-	firstName: yup.string().required('required'),
-	lastName: yup.string().required('required'),
-	email: yup.string().email('Invalid Email').required('required'),
-	contact: yup
-		.string()
-		.matches(phoneRegExp, 'Phone Number is Not Valid')
-		.required('required'),
-	address1: yup.string().required('required'),
-	address2: yup.string(),
-});
 
 const Form = () => {
 	const isNonMobile = useMediaQuery('(min-width:600px)');
-	const theme = useTheme();
-	const colors = tokens(theme.palette.mode);
 
 	const { values, touched, handleBlur, handleChange, handleSubmit, errors } =
 		useFormik({
@@ -153,5 +127,29 @@ const Form = () => {
 		</Box>
 	);
 };
+
+const initialValues = {
+	firstName: '',
+	lastName: '',
+	email: '',
+	contact: '',
+	address1: '',
+	address2: '',
+};
+
+const phoneRegExp =
+	/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+
+const userSchema = yup.object().shape({
+	firstName: yup.string().required('required'),
+	lastName: yup.string().required('required'),
+	email: yup.string().email('Invalid Email').required('required'),
+	contact: yup
+		.string()
+		.matches(phoneRegExp, 'Phone Number is Not Valid')
+		.required('required'),
+	address1: yup.string().required('required'),
+	address2: yup.string(),
+});
 
 export default Form;

@@ -57,6 +57,7 @@ const Contacts = () => {
 			flex: 1,
 		},
 	];
+
 	return (
 		<Box m="20px">
 			<Header
